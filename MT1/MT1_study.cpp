@@ -13,22 +13,32 @@ fibonacci (n) = fibonacci (n - 1) + fibonacci (n - 2);
 Write a recursive C++ function to compute the Fibonacci numbers.
 */
 
+int fib(n){
+    if (n == 1 || n == 1)
+        return 1;
+    else
+        return fib(n-1) + fib(n-2);
+}
+
 //1 e) (for exam) (2 pts – < 1 Min.)
 
 /* A and B are Boolean variables. Expression (!A) || (!B) is equivalent to which of the following conditions:
-i. (! (A && B))
+i. (! (A && B))             <-- ANSWER
 ii. (! (A || B))
 iii. (!A) && (!B)
 iv. True
 v. None of the above */
 
 
+
 //1 f) (for exam) (2 pts – < 1 Min.)
 //What is the difference between the two declarations?
 //i.
 int * newint = new int [size];
+//this declaration is a pointer that points to a dynamically allocated array of size 'size'
 //ii.
 int * intptr [SIZE];
+//this deckaration is an array of pointers of size 'SIZE'
 
 //1 g) (for exam) (3 pts – < 1 Min.)
 //What is the output of this code?
@@ -42,13 +52,18 @@ cout << **a;
 return 0;
 }
 
+//THIS WILL NOT COMPILE a double pointer cannot be assigned a 2D array
+
 
 //1 i) (for exam) (1 pt – < 1 Min.)
 //Suppose we define:
 int a[] = {3, 6, 9, 12, 15};
-int* addr = &(a[0]);
+int* addr = &(a[0]); //pointer addr points to addr of a[0]
 /* What is the value of (*addr)+4?
 What is the value of *(addr+4)? */
+
+(*addr) + 4 has a value of 7
+*(addr+4) has a value of 15
 
 //1 k) (for exam) (3 pts – 2 Min.)
 //What are the three lines of output produced by this program?
@@ -65,10 +80,14 @@ int f(int x, int y)
 int main()
 {
  int x = 3;
- cout << g(x) << endl;
- cout << f(x, 1) << endl;
- cout << f(x, 2) << endl;
+ cout << g(x) << endl;      //input is 3, function does 3*4, output is 12
+ cout << f(x, 1) << endl;   //input is 3 and 1, function does g(4), g does 4*5, output is 20
+ cout << f(x, 2) << endl;   //input is 3 and 2, function does g(5), g does 5*6, output is 30
 }
+
+12
+20
+30
 
 //6 x)  (for exam) Code Setup (15 Points – 5 Min.)
 /* Write a declaration for a class Person, Student and Professor.
@@ -78,6 +97,44 @@ Student contains, along with the above attributes, ID and GPA.
 Professor can access the list of students but cannot access the address of the student.
 All attributes must be private. You can access them using some get and set methods that you can declare appropriately. 
 You need not define any of the methods. */
+
+class Person{
+    private:
+    string firstN;
+    string lastN;
+    string address;
+    int phoneNum;
+    public:
+    Person();
+    getFirst(); //gets first name
+    getLast();  //gets last name
+    getAddr();  //gets address
+    getPhone(); //gets phone number
+    setFirst(); //sets first name
+    setLast();  //sets last name
+    setAddr();  //sets address
+}
+
+class Student : public Person{
+    private:
+    int ID;
+    double GPA;
+    public:
+    Student();  
+    setID();    //sets ID number
+    setGPA();   //sets GPA value
+    getID();    //returns ID number
+    getGPA();   //returns GPA value
+}
+
+class Professor : public Person{
+    public:
+    Professor();
+}
+
+int main(){
+    Student class1[10]; //array of 10 students
+}
 
 //PS2
 
@@ -93,6 +150,7 @@ f) b and c and d */
 
 //2) (for exam) Short answer (1 pt, 1 min)  
 // Is there a difference between class and struct?
+
 
 //7)  (for exam) Coding questions  (4pts, 5 mins 
 /* Write a Change class with quarters, dimes, and pennies (no nickels for simplicity).
