@@ -16,44 +16,54 @@ Then, the output of the program should be:
 2 """
 
 #2. (for exam) What is the output of the following program (1 point, 1 min):
-"""     y = 8
+""" y = 8
     z = lambda x : x * y
     print z(6)
-    a. 48
+    a. 48              <- ANSWER
     b. 14
     c. 64
     d. None """
+
+
 
 #3. (for exam) What is the output of the following code (1 point, 1 min):
 """ print 9//2
     a. 4.5
     b. 4.0
-    c. 4
+    c. 4                 <- ANSWER
     d. Error """
+
 
 #6. (for exam) What is the output of the following program (1 point, 1 min):
 """  def myfunc(a):
          a = a + 2
-                a = a * 2
+            a = a * 2
           return a     
  print myfunc(2)
     a. 8
     b. 16
-    c. Identation Error
+    c. Identation Error         <- ANSWER
     d. Runtime Error
  """
 
  #7. (for exam) What does the following program print (1 point, 1 min):
-"""  a = True
+"""  
+ a = True
  b = False
  c = False 
  if a or b and c: 
           print "AWESOME_PYTHON"
  else: 
           print "NOT_SO_AWESOME_PYTHON"
-    a. AWESOME_PYTHON
+
+    a. AWESOME_PYTHON               <- ANSWER
     b. NOT_SO_AWESOME_PYTHON
     c. Compile Error
     d. Runtime Error """
 
 #python file I/O
+with open('test.txt', 'r') as f:
+    lines = f.read()
+    print(lines)
+
+#this reads each line of the file and prints it
